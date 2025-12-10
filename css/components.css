@@ -124,6 +124,21 @@
   transform: translateX(4px);
 }
 
+/* External Link Icon */
+.external-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.25rem;
+  flex-shrink: 0;
+}
+
+.external-icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  vertical-align: 0;
+}
+
 /* Button Loading State */
 .btn--loading {
   pointer-events: none;
