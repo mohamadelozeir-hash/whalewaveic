@@ -35,6 +35,13 @@
 
     elements.forEach(element => {
       observer.observe(element);
+
+      // Ensure elements already in the viewport are visible immediately.
+      const rect = element.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inView) {
+        element.classList.add('revealed');
+      }
     });
   };
 
@@ -333,6 +340,10 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
+      // Do not keep reveal elements hidden when animations are disabled.
+      document.querySelectorAll('.fade-in').forEach(element => {
+        element.classList.add('revealed');
+      });
       console.log('Animations disabled: user prefers reduced motion');
       return;
     }
