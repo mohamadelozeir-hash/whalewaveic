@@ -309,6 +309,38 @@
   };
 
   // ========================================
+  // Services: list column height = image (laptop / desktop only)
+  // ========================================
+
+  const initServicesDesktopHeights = () => {
+    const mq = window.matchMedia('(min-width: 1025px)');
+    const content = document.querySelector('.services__content');
+    const textCol = content?.querySelector('.services__text');
+    const img = content?.querySelector('.services__image img');
+    if (!content || !textCol || !img) return;
+
+    const apply = () => {
+      textCol.style.height = '';
+      if (!mq.matches) return;
+      const h = img.offsetHeight;
+      if (h < 24) return;
+      textCol.style.height = `${h}px`;
+    };
+
+    const run = debounce(apply, 60);
+    img.addEventListener('load', apply, { once: true });
+    if (img.complete) apply();
+    window.addEventListener('resize', run);
+    mq.addEventListener('change', apply);
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(run).observe(img);
+    }
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(apply);
+    }
+  };
+
+  // ========================================
   // Initialize All Main Features
   // ========================================
 
@@ -321,6 +353,7 @@
     initOnlineDetection();
     initPerformanceMonitoring();
     initConsoleMessage();
+    initServicesDesktopHeights();
 
     console.log('Main functionality initialized');
   };

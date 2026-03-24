@@ -1,5 +1,10 @@
 /* Section Styles - Original Theme */
 
+/* Dividers between main sections */
+#main-content > section:not(:last-of-type) {
+  border-bottom: 1px solid var(--color-surface-dark);
+}
+
 /* HEADER/NAVIGATION */
 .header {
   position: fixed;
@@ -202,8 +207,6 @@
 .flexibility {
   padding: clamp(1rem, 2.2vw, 1.5rem) 0;
   background: #FAFAF8;
-  border-top: 1px solid var(--color-surface-dark);
-  border-bottom: 1px solid var(--color-surface-dark);
 }
 
 .flexibility .container {
@@ -280,7 +283,8 @@
   font-size: var(--font-size-lg);
   color: var(--color-text-primary);
   font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-md);
+  margin: 0 0 var(--space-lg);
+  text-align: center;
 }
 
 .services__title {
@@ -292,9 +296,9 @@
 
 .services__content {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.55fr 0.82fr;
   gap: var(--space-2xl);
-  align-items: center;
+  align-items: start;
 }
 
 .services__text p {
@@ -309,44 +313,77 @@
   max-width: 62ch;
 }
 
+.services__text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 .services__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-sm);
+  gap: var(--space-xs);
+  flex: 1;
+  min-height: 0;
+  align-content: start;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .services__list li {
   color: var(--color-text-secondary);
-  line-height: 1.6;
+  font-size: var(--font-size-sm);
+  line-height: 1.42;
   background: #FFFFFF;
-  border-radius: var(--radius-lg);
-  padding: var(--space-sm) var(--space-md) var(--space-sm) calc(var(--space-md) + 0.9rem);
+  border-radius: var(--radius-md);
+  padding: 0.35rem var(--space-md);
   border: 1px solid #E8E4DC;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-  position: relative;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.035);
 }
 
 .services__list strong {
   color: var(--color-text-primary);
 }
 
-.services__list li::before {
-  content: '';
-  position: absolute;
-  left: var(--space-md);
-  top: 1.05rem;
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  background: #B7AD99;
+/* Laptop & desktop: match list stack to photo; stretch rows so boxes fill the column */
+@media (min-width: 1025px) {
+  .services__subtitle {
+    text-align: left;
+  }
+
+  .services__text {
+    align-self: start;
+  }
+
+  .services__list {
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    align-content: stretch;
+    gap: var(--space-sm);
+    overflow-y: hidden;
+  }
+
+  .services__list li {
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.55rem var(--space-md);
+    line-height: 1.48;
+    box-sizing: border-box;
+  }
 }
 
 .services__image img {
   width: 100%;
   height: auto;
+  aspect-ratio: 1024 / 1536;
+  display: block;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
 }
@@ -543,6 +580,26 @@
   color: #D2C9B7;
 }
 
+@media print {
+  .services__text {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .services__list {
+    grid-template-rows: none !important;
+    align-content: start !important;
+    overflow-y: visible !important;
+    gap: var(--space-xs) !important;
+  }
+
+  .services__list li {
+    height: auto !important;
+    display: block !important;
+  }
+}
+
 /* FOOTER */
 .footer {
   background: var(--color-text-primary);
@@ -639,8 +696,25 @@
     font-size: var(--font-size-2xl);
   }
 
+  .services__text {
+    height: auto !important;
+    min-height: 0 !important;
+    align-self: start !important;
+    overflow: visible !important;
+  }
+
   .services__list {
     grid-template-columns: 1fr;
+    grid-template-rows: none !important;
+    align-content: start !important;
+    flex: none;
+    gap: var(--space-xs) !important;
+    overflow-y: visible !important;
+  }
+
+  .services__list li {
+    height: auto !important;
+    display: block !important;
   }
 
   .flexibility__list {
