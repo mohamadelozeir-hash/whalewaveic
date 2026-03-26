@@ -250,6 +250,59 @@
   font-weight: var(--font-weight-semibold);
 }
 
+/* TESTIMONIALS — single trust card */
+.testimonials {
+  padding: clamp(1rem, 2.2vw, 1.5rem) 0;
+  background: #FAFAF8;
+}
+
+.testimonials .container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.testimonials__title {
+  text-align: center;
+  font-size: var(--font-size-xl);
+  margin: 0 0 var(--space-md);
+  color: var(--color-text-primary);
+}
+
+.testimonial-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E8E4DC;
+  border-radius: var(--radius-xl);
+  padding: clamp(1rem, 1rem + 0.8vw, 1.35rem);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card::before {
+  content: "“";
+  position: absolute;
+  top: -0.6rem;
+  left: 1rem;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: rgba(210, 201, 183, 0.65);
+  font-weight: var(--font-weight-bold);
+}
+
+.testimonial-card__quote {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.65;
+}
+
+.testimonial-card__meta {
+  margin: var(--space-sm) 0 0;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
 /* SERVICES SECTION */
 .services {
   padding: var(--section-padding-y) 0;
