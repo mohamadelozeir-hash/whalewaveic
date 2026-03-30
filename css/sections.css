@@ -570,6 +570,11 @@
   margin: 0 auto;
 }
 
+.contact__info-grid:has(.contact-info-card:only-child) {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 520px;
+}
+
 .contact-info-card {
   background: #FFFFFF;
   padding: var(--space-xl);
