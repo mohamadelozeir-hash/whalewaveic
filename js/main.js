@@ -354,6 +354,8 @@
     initPerformanceMonitoring();
     initConsoleMessage();
     initServicesDesktopHeights();
+    const yearEl = document.getElementById('footer-year');
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
     console.log('Main functionality initialized');
   };
