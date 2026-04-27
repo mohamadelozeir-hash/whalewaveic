@@ -79,6 +79,107 @@
   background: var(--color-background);
 }
 
+/* CAREER PAGE */
+.career-hero {
+  padding-top: 110px;
+  padding-bottom: clamp(1.25rem, 2.4vw, 2rem);
+  background: var(--gradient-hero);
+}
+
+.career-hero__container {
+  max-width: 1200px;
+}
+
+.career-hero__content {
+  text-align: center;
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+.career-hero__title {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+}
+
+.career-hero__subtitle {
+  margin: var(--space-sm) 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+}
+
+.career-values {
+  background: #FFFFFF;
+}
+
+.career-values__title {
+  text-align: center;
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-xl);
+}
+
+.career-values__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.career-value.card {
+  background: #FFFFFF;
+  border: 1px solid #E8E4DC;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.career-value h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+}
+
+.career-value p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.career-contact {
+  background: #FAFAF8;
+}
+
+.career-contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.career-contact__title {
+  font-size: var(--font-size-xl);
+  margin: 0 0 var(--space-sm);
+}
+
+.career-contact__subtitle {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+.career-contact__box.card {
+  background: #FFFFFF;
+  border: 1px solid #E8E4DC;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 1024px) {
+  .career-values__grid,
+  .career-contact__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .hero .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -269,6 +370,13 @@
   color: var(--color-text-primary);
 }
 
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
 .testimonial-card {
   position: relative;
   background: #FFFFFF;
@@ -301,6 +409,12 @@
   color: var(--color-text-tertiary);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 768px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* SERVICES SECTION */
